@@ -1,0 +1,66 @@
+/* Large Screens & TV Optimization - большие экраны и телевизоры */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 5rem;
+    }
+    
+    .gothic-title-slogan {
+        font-size: 160px;
+    }
+    
+    /* Улучшенные отступы для больших экранов */
+    section {
+        padding: 80px 0;
+    }
+    
+    /* Увеличенные элементы для навигации с пульта ТВ */
+    .nav-link {
+        font-size: 2rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 20px 40px;
+        font-size: 1.4rem;
+    }
+    
+    /* Оптимизация для 4K дисплеев */
+    .gallery-item {
+        height: 400px;
+    }
+    
+    /* Улучшенная читаемость на больших расстояниях (ТВ) */
+    .gothic-text {
+        font-size: 28px;
+    }
+    
+    .gothic-title {
+        font-size: 70px;
+    }
+}
+
+/* Сверхширокие экраны */
+@media (min-width: 2000px) {
+    .container {
+        max-width: 1800px;
+    }
+    
+    body {
+        font-size: 1.2rem;
+    }
+    
+    /* Дополнительная оптимизация для Smart TV */
+    .cta-button {
+        min-height: 60px;
+        min-width: 200px;
+    }
+    
+    /* Увеличенные тач-таргеты для пультов */
+    .nav-item {
+        margin: 0 1.5rem;
+    }
+}

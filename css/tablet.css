@@ -1,0 +1,66 @@
+/* Tablet Styles - планшеты */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .nav {
+        padding: 1rem;
+    }
+    
+    .master-photo {
+        flex: 0 0 300px;
+    }
+    
+    .master-name {
+        font-size: 2.5rem;
+    }
+    
+    .master-specialization {
+        font-size: 1.6rem;
+    }
+    
+    .photo-overlay {
+        padding: 1.5rem;
+    }
+    
+    .booking-content {
+        gap: 2rem;
+    }
+    
+    .booking-main,
+    .advantages-section {
+        padding: 1.5rem;
+    }
+    
+    .contacts-content {
+        gap: 2rem;
+    }
+    
+    .map-wrapper,
+    .video-wrapper {
+        height: 250px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .preloader-container {
+        width: 320px;
+        height: 240px;
+    }
+    
+    .timer-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .care-options {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .contraindications-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
