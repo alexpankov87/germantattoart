@@ -2215,11 +2215,6 @@ section {
     transition: all 0.3s ease;
 }
 
-.map-block:hover,
-.how-to-get-block:hover {
-
-}
-
 .map-wrapper,
 .video-wrapper {
     width: 100%;
