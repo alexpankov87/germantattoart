@@ -1239,9 +1239,6 @@ section {
     justify-content: center;
 }
 
-.master-content {
-    space-y: 1.5rem;
-}
 
 .master-name {
     color: var(--pure-white);
@@ -1560,9 +1557,7 @@ section {
     text-align: left;
 }
 
-.advantages-list {
-    space-y: 1.5rem;
-}
+
 
 .advantage-item {
     display: flex;
