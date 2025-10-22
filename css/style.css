@@ -18,6 +18,15 @@
     --blood-dried: #660000;
     --blood-glow: rgba(139, 0, 0, 0.5);
     --blood-shadow: rgba(101, 0, 0, 0.8);
+    --bg-dark: #0d0d0d;
+    --card-bg: rgba(30,30,30,0.78);
+    --muted: #dcdcdc;
+    --accent: var(--accent-color, #b71c1c); 
+    --accent-dark: #8b0000;
+    --radius: 10px; 
+    --container-max: 1200px;
+    --gothic: "Cinzel Decorative", serif;
+    --ui-font: "Inter", "Roboto", sans-serif;
 }
 
 body {
@@ -2560,4 +2569,311 @@ section {
 .contact-form textarea {
     min-height: 100px;
     resize: vertical;
+}
+
+
+.nav .btn {
+  background: linear-gradient(145deg, var(--blood-dark), var(--blood-dark));
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.nav .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: skewX(-20deg);
+}
+
+.nav .btn:hover {
+  transform: scale(1.05);
+}
+
+.nav .btn:hover::before {
+  animation: shine 1s ease forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -75px;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+
+
+/* =========================
+   BOOKING SECTION (основной блок "Как записаться")
+   ========================= */
+.booking-section.modern {
+  position: relative;
+  overflow: hidden;
+  padding: 84px 0;
+  color: #eee;
+}
+
+/* фоновая картинка — абсолютный слой */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 100%;
+  height: 160%;              /* чуть больше, чтобы не было пустот при смещении */
+  background-image: url('img/bg_parallax.jpg');
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+.booking-section.modern .booking-overlay { z-index: 1; }
+.booking-section.modern .container { position: relative; z-index: 2; }
+
+
+/* overlay чтобы текст читаем был на любом фоне */
+.booking-section.modern .booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.56);
+  z-index: 0;
+}
+
+/* контент поверх оверлея */
+.booking-section.modern .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* заголовок */
+.booking-section.modern .gothic-title {
+  font-family: "Amatic SC", cursive;
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 34px;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 16px rgba(255,0,0,0.12);
+  text-align: center;
+}
+
+/* контейнер карточек (flex) */
+.booking-steps {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+/* карточка шага */
+.step {
+  background: var(--card-bg);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;            /* <= 10px */
+  padding: 26px;
+  width: 340px;
+  box-sizing: border-box;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+  transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeInUp .66s ease forwards;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+/* staggered delays for sequential appearance */
+.step:nth-child(1){ animation-delay: .16s; }
+.step:nth-child(2){ animation-delay: .32s; }
+.step:nth-child(3){ animation-delay: .48s; }
+
+/* hover */
+.step:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,0,0,0.20);
+  box-shadow: 0 14px 40px rgba(183,28,28,0.12);
+}
+
+/* иконка карточки */
+.step-icon {
+  width: 42px;
+  height: 42px;
+  display: block;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+
+/* заголовок шага */
+.step h3{
+  font-family: "Amatic SC", cursive;
+  font-size: 1.4rem;
+  color: #fff;
+  margin: 6px 0 10px 0;
+}
+
+.step-title {
+    display: flex;
+    gap: 10px;
+}
+
+/* текст внутри карточки — увеличенный размер для лучшей читаемости */
+.step p, .step li, .step .gothic-text {
+  color: var(--muted);
+  font-family: "Amatic SC", cursive;
+  font-size: 1.4rem; 
+  line-height: 1.62;
+
+}
+
+/* список */
+.step ul { margin: 8px 0 0 0; padding: 0; list-style: none; }
+.step li { margin-bottom: 6px; }
+.step li::before { content: "• "; color: #ff2e2e; margin-right: 6px; }
+
+/* Финишная зона */
+.booking-finish {
+  margin-top: 6px;
+  text-align: center;
+}
+.booking-finish .gothic-text {
+  color: var(--muted);
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+}
+
+/* === кнопка с shine и отражением === */
+.btn.main-btn {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 12px 34px;
+  border-radius: 5px;
+  font-size: 21px;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--blood-dark), var(--blood-dark));
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(183, 28, 28, 0.18);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+/* — shine эффект */
+.btn.main-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.75), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  opacity: 0.95;
+  mix-blend-mode: screen;
+  transition: left 1s cubic-bezier(.2,.9,.2,1);
+}
+
+/* — мягкое свечение снизу при hover */
+.btn.main-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.25) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+/* — hover эффекты */
+.btn.main-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 18px 40px rgba(183,28,28,0.28);
+}
+
+.btn.main-btn:hover::before {
+  left: 130%;
+}
+
+.btn.main-btn:hover::after {
+  opacity: 0.5; /* появление мягкого отражения */
+}
+
+/* — keyframes если хочешь заменить transition */
+@keyframes shine {
+  0% { left: -80%; }
+  50% { left: 35%; }
+  100% { left: 130%; }
+}
+/* альтернативный вариант:
+.btn.main-btn:hover::before { animation: shine 0.9s ease forwards; } */
+
+
+/* appearance keyframes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 992px) {
+  .booking-steps { gap: 18px; }
+  .step { width: 300px; padding: 22px; }
+  .gothic-title { font-size: 2.1rem; }
+}
+
+@media (max-width: 768px) {
+  /* nav-brand stack */
+  .nav-brand {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    gap: 10px;
+  }
+  .nav-brand .btn { order: 3; width: auto; padding: 10px 18px; font-size: 14px; }
+
+  /* booking -> column */
+  .booking-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .step { width: 92%; }
+  .step h3 { text-align: center; }
+  .booking-finish .btn.main-btn { width: 86%; padding: 12px 24px; }
+  .booking-section.modern { padding: 56px 0; }
+}
+
+/* small phones */
+@media (max-width: 420px) {
+  .logo-container img { width: 36px; height:36px; }
+  .step p, .step li { font-size: 1rem; }
+  .gothic-title { font-size: 1.7rem; }
 }
