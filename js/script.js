@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
         heroVideo.addEventListener('error', function() {
             console.log('Ошибка загрузки видео');
             // Fallback: можно установить фоновое изображение
-            document.querySelector('.video-background').style.backgroundImage = 'url("images/hero-bg.jpg")';
+            document.querySelector('.video-background').style.backgroundImage = 'url("img/bg-parallax.jpg")';
             document.querySelector('.video-background').innerHTML = '';
         });
     }

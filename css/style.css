@@ -79,6 +79,18 @@ body {
     text-align: center;
 }
 
+.gothic-text a {
+    text-decoration: none;
+    color: var(--pure-white);
+    transition: all 0.3s ease;
+}
+
+.gothic-text a:hover {
+    color: var(--blood-oxidized);
+    text-decoration: underline;
+    transform: scale(1.5);
+}
+
 /* Preloader */
 .preloader {
     position: fixed;
@@ -437,13 +449,37 @@ body {
 }
 
 .video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
 }
+
+/* Само видео */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Оверлей — тень поверх видео */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
+  z-index: 2;
+}
+
+
+
 
 .hero-video {
     width: 100%;
@@ -982,8 +1018,6 @@ section {
   width: 100%;
   z-index: 1;
 }
-
-
 
 
 
@@ -1731,13 +1765,6 @@ section {
 }
 
 
-
-
-
-
-
-
-/* Исправленные медиа-запросы - УДАЛЕНЫ СТИЛИ ДЛЯ .aftercare-section */
 @media (max-width: 768px) {
     .care-options {
         grid-template-columns: 1fr;
@@ -1864,8 +1891,8 @@ section {
     }
     
     .tattoo-machine-center {
-        width: 180px;
-        height: 180px;
+        width: 220px;
+        height: 250px;
     }
     
     .gear {
@@ -1880,22 +1907,22 @@ section {
     
     .gear-top-left {
         top: 64px;
-        left: 40px;
+        left: 0px;
     }
     
     .gear-small-top-left {
-        top: 100px;
-        left: 74px;
+        top: 122px;
+        left: 24px;
     }
     
     .gear-bottom-right {
-        bottom: 50px;
-        right: 42px;
+        bottom: 20px;
+        right: 2px;
     }
     
     .gear-small-bottom-right {
-       bottom: 80px;
-        right: 80px;
+        bottom: 75px;
+        right: 30px;
     }
     
     .preloader .gothic-title {
@@ -1960,11 +1987,20 @@ section {
     .hero-video {
         display: none;
     }
-    
+
     .video-background {
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), center/cover;
+        background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 23%)), url(img/bg_parallax.jpg);    
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed; /* параллакс */
+        background-repeat: no-repeat;
+        z-index: 1;
     }
-}
+
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.4); /* чуть прозрачнее, чтобы фон был виден */
+    }
+    }
 
 @media (max-width: 428px) {
     body {
@@ -2040,7 +2076,7 @@ section {
     }
     
     .gallery-item {
-        height: 210px; /* Дополнительное уменьшение для мобильных */
+        height: 210px; 
     }
     
     .gallery-filter {

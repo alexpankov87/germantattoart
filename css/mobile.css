@@ -109,11 +109,6 @@
         height: 200px;
     }
     
-    .tattoo-machine-center {
-        width: 120px;
-        height: 120px;
-    }
-    
     /* Параллакс для мобильных */
     .our-tatto-care {
         background-attachment: scroll;
