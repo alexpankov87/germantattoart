@@ -2418,8 +2418,8 @@ section {
     height: 80px;
     color: var(--pure-white);
     position: fixed;
-    bottom: 20px;
-    right: 30px;
+    bottom: 50px;
+    right: 40px;
     cursor: pointer;
     border: 3px solid var(--pure-white);
     border-radius: 50%;
