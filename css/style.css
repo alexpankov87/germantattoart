@@ -644,14 +644,14 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding:0;
-    margin-top: 90px;
+    margin-top: 40px;
 }
 
 .container-gallery {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    margin-top: 90px;
+    margin-top: 40px;
  
 }
 
@@ -780,6 +780,7 @@ section {
     max-width: 600px;
     margin: 3rem auto 0;
     text-align: center;
+    padding: 10px;
 }
 
 .contact-form input,
@@ -1198,7 +1199,7 @@ section {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+    background: linear-gradient(90deg, transparent, var(--blood-dark), transparent);
 }
 
 .master-block {
