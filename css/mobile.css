@@ -82,7 +82,9 @@
     .care-options {
         grid-template-columns: 1fr;
     }
-    
+    .contraindication-period {
+        flex: 1 1 200px;
+    }
     .contraindications-grid {
         grid-template-columns: 1fr;
     }
