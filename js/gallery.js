@@ -1,3 +1,10 @@
+window.addEventListener('error', function(e) {
+  if (String(e.message).includes('A listener indicated an asynchronous response')) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, true);
+
 class TattooGallery {
     constructor() {
         this.init();

@@ -1,4 +1,11 @@
 // Функция инициализации карты
+window.addEventListener('error', function(e) {
+  if (String(e.message).includes('A listener indicated an asynchronous response')) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, true);
+
 function initYandexMap() {
     if (typeof ymaps === 'undefined') {
         console.error('Yandex Maps API не загружен');

@@ -1,3 +1,10 @@
+window.addEventListener('error', function(e) {
+  if (String(e.message).includes('A listener indicated an asynchronous response')) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, true);
+
 $('body').append('<div class="upbtn"></div>');
 $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
