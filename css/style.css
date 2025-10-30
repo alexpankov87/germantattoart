@@ -1511,9 +1511,9 @@ section {
 }
 
 .direct-link {
-    color: var(--blood-dark);
+    color: var(--gold);
     text-decoration: none;
-    border-bottom: 1px dashed var(--blood-dark);
+    border-bottom: 1px dashed var(--gold);
     transition: all 0.3s ease;
     font-weight: bold;
 }
